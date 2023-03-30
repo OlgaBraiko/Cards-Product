@@ -4,24 +4,24 @@ class Products {
     catalog.forEach(
       ({ id, title, price, image, description, category, rating }) => {
         htmlCatalog += `
-        <li>
-        <title>${title}</title>
-        <img src ='${image}' />
-        <span>${price}</span>
-        <span>${description}</span>
-        <span>${category}</span>
-        <span>${rating}</span>
-         
-        </li>
-        
-        `;
+          <li>
+          <title>${title}</title>
+          <img src ='${image}' />
+          <span>${price}</span>
+          <span>${description}</span>
+          <span>${category}</span>
+          <span>${rating}</span>
+           
+          </li>
+          
+          `;
       }
     );
     const html = `
-    <ul>
-    ${htmlCatalog}
-    </ul>
-    `;
+      <ul>
+      ${htmlCatalog}
+      </ul>
+      `;
 
     cardFirst.innerHTML = html;
     cardSecond.innerHTML = html;
