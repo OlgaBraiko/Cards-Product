@@ -1,41 +1,33 @@
-class Products {
-  render() {
-    let htmlCatalog = "";
-    catalog.forEach(
-      ({ id, title, price, image, description, category, rating }) => {
-        htmlCatalog += `
-            <li>
-            <title>${title}</title>
-            <img src ='${image}' />
-            <span>${price}</span>
-            <span>${description}</span>
-            <span>${category}</span>
-            <span>${rating}</span>
-             
-            </li>
-            
-            `;
-      }
-    );
-    const html = `
-        <ul>
-        ${htmlCatalog}
-        </ul>
-        `;
+window.addEventListener("DOMContentLoaded", () => {
+  const tabs = document.querySelectorAll(".tabheader__item"),
+    tabsContent = document.querySelectorAll(".tabcontent"),
+    tabsParent = document.querySelector(". tabheader_items");
 
-    cardFirst.innerHTML = html;
-    cardSecond.innerHTML = html;
-    cardThird.innerHTML = html;
-    cardFourth.innerHTML = html;
-    cardFifth.innerHTML = html;
+  function hideTabContent() {
+    tabsContent.forEach((item) => {
+      item.style.display = "none";
+    });
+    tabs.forEach((tab) => {
+      tab.classList.remove("tabheader_item_active");
+    });
   }
-}
 
-const productsPage = new Products();
-productsPage.render();
+  function showTabContent(i = 0) {
+    tabsContent[i].style.display = "block";
+    tab.classList.add("tabheader_item_active");
+  }
+  hideTabContent();
+  showTabContent();
 
-const cardFirst = document.getElementById("1");
-const cardSecond = document.getElementById("2");
-const cardThird = document.getElementById("3");
-const cardFourth = document.getElementById("4");
-const cardFifth = document.getElementById("5");
+  tabsParent.addEventListener("click", (event) => {
+    const target = event.target;
+    if (target && target.classList.contains("tabheader__item")) {
+      tabs.forEach((item, i) => {
+        if (target == item) {
+          hideTabContent();
+          showTabContent(i);
+        }
+      });
+    }
+  });
+});
