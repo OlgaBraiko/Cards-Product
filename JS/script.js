@@ -1,32 +1,34 @@
-async function getProducts() {
-  let response = await fetch("https://fakestoreapi.com/products", {
-    method: "GET",
-  });
-  const products = await response.json();
+const btns = document.querySelectorAll("button"),
+  wrapper = document.querySelector(".btn-block");
 
-  console.log({ products });
-  return products;
-}
+/*console.log(btns[0].classList.length);
 
-getProducts();
+console.log(btns[0].classList.item(0));
 
-async function renderProducts() {
-  const products = document.querySelector(".products");
-  let result = await getProducts();
-  products.innerHTML = result
-    .map(
-      ({ id, title, price, image, description, category, rating }) => `
-        <li class="product">
-          <h1>${title}</h1>
-          <img src ='${image}'/>
-          <span>${price}</span>
-          <span>${description}</span>
-          <span>${category}</span>
-          <span>${rating}</span>
-        </li>
-      `
-    )
+console.log(btns[0].classList.add("red"));
+console.log(btns[0].classList.remove("blue"));
+console.log(btns[0].classList.toggle("blue"));
 
-    .join("");
-}
-renderProducts();
+if (btns[0].classList.contains("red")) {
+  console.log("red");
+}*/
+
+btns[0].addEventListener("click", () => {
+  /*if (!btns[1].classList.contains("red")) {
+    btns[1].classList.add("red");
+  } else {
+    btns[1].classList.remove("red");
+  }*/
+
+  btns[1].classList.toggle("red");
+});
+
+wrapper.addEventListener("click", (e) => {
+  if (e.target && e.target.tagName == "BUTTON") {
+    console.log("helo");
+  }
+});
+
+const btn = document.createElement("button");
+btn.classList.add("red");
+wrapper.append(btn);
